@@ -4,6 +4,7 @@
 @theme {
   --font-sans: 'Montserrat', sans-serif;
   --font-serif: 'Playfair Display', serif;
+  --shadow-biggest: 0 40px 100px -20px rgba(0, 0, 0, 0.8), 0 20px 40px -10px rgba(0, 0, 0, 0.4);
 }
 
 @layer base {
@@ -24,6 +25,20 @@
 
 
 @layer utilities {
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(160, 122, 65, 0.05);
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(160, 122, 65, 0.3);
+    border-radius: 10px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(160, 122, 65, 0.5);
+  }
+
   .animate-fade-in {
     animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     opacity: 0;

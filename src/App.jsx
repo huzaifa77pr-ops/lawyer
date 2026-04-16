@@ -43,6 +43,31 @@ import SupportingDocumentChecklistsPage from './pages/SupportingDocumentChecklis
 import CoverLetterDraftingPage from './pages/CoverLetterDraftingPage'
 import AppealDocumentationSupportPage from './pages/AppealDocumentationSupportPage'
 import CaseStudiesPage from './pages/CaseStudiesPage'
+import CaseSummariesPage from './pages/CaseSummariesPage'
+import ChronologiesTimelinesPage from './pages/ChronologiesTimelinesPage'
+import DraftingPleadingsPage from './pages/DraftingPleadingsPage'
+import WitnessStatementDraftingPage from './pages/WitnessStatementDraftingPage'
+import DiscoverySupportPage from './pages/DiscoverySupportPage'
+import TrialBundlePreparationPage from './pages/TrialBundlePreparationPage'
+import DepositionSummariesPage from './pages/DepositionSummariesPage'
+import EvidenceOrganizationPage from './pages/EvidenceOrganizationPage'
+import ClientIntakeEvaluationPage from './pages/ClientIntakeEvaluationPage'
+import MedicalRecordsBillingPage from './pages/MedicalRecordsBillingPage'
+import LiabilityInvestigationPage from './pages/LiabilityInvestigationPage'
+import InsuranceCorrespondencePage from './pages/InsuranceCorrespondencePage'
+import DemandLetterPreparationPage from './pages/DemandLetterPreparationPage'
+import PleadingsWitnessStatementsPage from './pages/PleadingsWitnessStatementsPage'
+import CaseManagementDeadlineTrackingPage from './pages/CaseManagementDeadlineTrackingPage'
+import SettlementNegotiationSupportPage from './pages/SettlementNegotiationSupportPage'
+
+
+
+
+
+
+
+
+
 
 
 
@@ -98,6 +123,33 @@ function App() {
           <Route path="/services/immigration-support/cover-letter-drafting" element={<CoverLetterDraftingPage />} />
           <Route path="/services/immigration-support/appeal-documentation-support" element={<AppealDocumentationSupportPage />} />
           <Route path="/case-studies" element={<CaseStudiesPage />} />
+          <Route path="/services/litigation-support/case-summaries" element={<CaseSummariesPage />} />
+          <Route path="/services/litigation-support/chronologies-timelines" element={<ChronologiesTimelinesPage />} />
+          <Route path="/services/litigation-support/drafting-pleadings" element={<DraftingPleadingsPage />} />
+          <Route path="/services/litigation-support/witness-statements" element={<WitnessStatementDraftingPage />} />
+          <Route path="/services/litigation-support/discovery-support" element={<DiscoverySupportPage />} />
+          <Route path="/services/litigation-support/trial-bundle" element={<TrialBundlePreparationPage />} />
+          <Route path="/services/litigation-support/deposition-summaries" element={<DepositionSummariesPage />} />
+          <Route path="/services/litigation-support/evidence-organization" element={<EvidenceOrganizationPage />} />
+          <Route path="/services/personal-injury/client-intake" element={<ClientIntakeEvaluationPage />} />
+          <Route path="/services/personal-injury/medical-records" element={<MedicalRecordsBillingPage />} />
+          <Route path="/services/personal-injury/liability-investigation" element={<LiabilityInvestigationPage />} />
+          <Route path="/services/personal-injury/insurance-correspondence" element={<InsuranceCorrespondencePage />} />
+          <Route path="/services/personal-injury/demand-letter" element={<DemandLetterPreparationPage />} />
+          <Route path="/services/personal-injury/legal-research" element={<LegalResearchPage />} />
+          <Route path="/services/personal-injury/drafting-pleadings" element={<PleadingsWitnessStatementsPage />} />
+          <Route path="/services/personal-injury/case-management" element={<CaseManagementDeadlineTrackingPage />} />
+          <Route path="/services/personal-injury/settlement-negotiation" element={<SettlementNegotiationSupportPage />} />
+
+
+
+
+
+
+
+
+
+
 
         </Routes>
 
