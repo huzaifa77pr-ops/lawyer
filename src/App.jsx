@@ -59,6 +59,48 @@ import DemandLetterPreparationPage from './pages/DemandLetterPreparationPage'
 import PleadingsWitnessStatementsPage from './pages/PleadingsWitnessStatementsPage'
 import CaseManagementDeadlineTrackingPage from './pages/CaseManagementDeadlineTrackingPage'
 import SettlementNegotiationSupportPage from './pages/SettlementNegotiationSupportPage'
+import ContractReviewRiskAnalysisPage from './pages/ContractReviewRiskAnalysisPage'
+import LegalProofreadingPage from './pages/LegalProofreadingPage'
+import CitationCheckingPage from './pages/CitationCheckingPage'
+import ComplianceCheckReviewPage from './pages/ComplianceCheckReviewPage'
+import DocumentEditingFormattingPage from './pages/DocumentEditingFormattingPage'
+import LegalConsistencyChecksPage from './pages/LegalConsistencyChecksPage'
+import TrademarkSearchPage from './pages/TrademarkSearchPage'
+import CopyrightResearchPage from './pages/CopyrightResearchPage'
+import PatentResearchPage from './pages/PatentResearchPage'
+import TrademarkObjectionPage from './pages/TrademarkObjectionPage'
+import DMCATakedownPage from './pages/DMCATakedownPage'
+import IPInfringementReportsPage from './pages/IPInfringementReportsPage'
+import BrandProtectionDocumentationPage from './pages/BrandProtectionDocumentationPage'
+import MonthlyLegalSupportPage from './pages/MonthlyLegalSupportPage'
+import OngoingCaseAssistancePage from './pages/OngoingCaseAssistancePage'
+import DedicatedRemoteParalegalPage from './pages/DedicatedRemoteParalegalPage'
+import LawFirmBackOfficeSupportPage from './pages/LawFirmBackOfficeSupportPage'
+import ClientCommunicationHandlingPage from './pages/ClientCommunicationHandlingPage'
+import PropertyDocumentReviewPage from './pages/PropertyDocumentReviewPage'
+import TitleSearchAssistancePage from './pages/TitleSearchAssistancePage'
+import TenancyAgreementsPage from './pages/TenancyAgreementsPage'
+import RealEstateContractSummariesPage from './pages/RealEstateContractSummariesPage'
+import PropertyComplianceDocsPage from './pages/PropertyComplianceDocsPage'
+import TeamPage from './pages/TeamPage'
+import PersonalInjuryCaseSupportPage from './pages/PersonalInjuryCaseSupportPage'
+import EmploymentLawDocumentationPage from './pages/EmploymentLawDocumentationPage'
+import CriminalLawResearchPage from './pages/CriminalLawResearchPage'
+import BankruptcyDocumentationPage from './pages/BankruptcyDocumentationPage'
+import TaxLawAssistancePage from './pages/TaxLawAssistancePage'
+import CyberLawDocumentationPage from './pages/CyberLawDocumentationPage'
+import BlogPage from './pages/BlogPage'
+import LegalNewsPage from './pages/LegalNewsPage'
+import RecentJudgementsPage from './pages/RecentJudgementsPage'
+
+
+
+
+
+
+
+
+
 
 
 
@@ -140,6 +182,30 @@ function App() {
           <Route path="/services/personal-injury/drafting-pleadings" element={<PleadingsWitnessStatementsPage />} />
           <Route path="/services/personal-injury/case-management" element={<CaseManagementDeadlineTrackingPage />} />
           <Route path="/services/personal-injury/settlement-negotiation" element={<SettlementNegotiationSupportPage />} />
+          <Route path="/services/other/contract-review-risk" element={<ContractReviewRiskAnalysisPage />} />
+          <Route path="/services/other/legal-proofreading" element={<LegalProofreadingPage />} />
+          <Route path="/services/other/citation-checking" element={<CitationCheckingPage />} />
+          <Route path="/services/other/compliance-check" element={<ComplianceCheckReviewPage />} />
+          <Route path="/services/other/document-editing" element={<DocumentEditingFormattingPage />} />
+          <Route path="/services/other/legal-consistency" element={<LegalConsistencyChecksPage />} />
+          <Route path="/services/other/ip/trademark-search" element={<TrademarkSearchPage />} />
+          <Route path="/services/other/ip/copyright-research" element={<CopyrightResearchPage />} />
+          <Route path="/services/other/ip/patent-research" element={<PatentResearchPage />} />
+          <Route path="/services/other/ip/trademark-objection" element={<TrademarkObjectionPage />} />
+          <Route path="/services/other/ip/dmca-takedown" element={<DMCATakedownPage />} />
+          <Route path="/services/other/ip/infringement-reports" element={<IPInfringementReportsPage />} />
+          <Route path="/services/other/ip/brand-protection" element={<BrandProtectionDocumentationPage />} />
+          <Route path="/services/other/paralegal/monthly-support" element={<MonthlyLegalSupportPage />} />
+          <Route path="/services/other/paralegal/case-assistance" element={<OngoingCaseAssistancePage />} />
+          <Route path="/services/other/paralegal/dedicated-remote" element={<DedicatedRemoteParalegalPage />} />
+          <Route path="/services/other/paralegal/back-office" element={<LawFirmBackOfficeSupportPage />} />
+          <Route path="/services/other/paralegal/client-communication" element={<ClientCommunicationHandlingPage />} />
+          <Route path="/services/other/real-estate/lease-drafting" element={<LeaseAgreementDraftingPage />} />
+          <Route path="/services/other/real-estate/property-review" element={<PropertyDocumentReviewPage />} />
+          <Route path="/services/other/real-estate/title-search" element={<TitleSearchAssistancePage />} />
+          <Route path="/services/other/real-estate/tenancy-agreements" element={<TenancyAgreementsPage />} />
+          <Route path="/services/other/real-estate/contract-summaries" element={<RealEstateContractSummariesPage />} />
+          <Route path="/services/other/real-estate/compliance-docs" element={<PropertyComplianceDocsPage />} />
 
 
 
@@ -150,6 +216,26 @@ function App() {
 
 
 
+
+          <Route path="/services/other/specialized/personal-injury" element={<PersonalInjuryCaseSupportPage />} />
+          <Route path="/services/other/specialized/employment-law" element={<EmploymentLawDocumentationPage />} />
+          <Route path="/services/other/specialized/criminal-law" element={<CriminalLawResearchPage />} />
+          <Route path="/services/other/specialized/bankruptcy" element={<BankruptcyDocumentationPage />} />
+          <Route path="/services/other/specialized/tax-law" element={<TaxLawAssistancePage />} />
+          <Route path="/services/other/specialized/cyber-law" element={<CyberLawDocumentationPage />} />
+          <Route path="/insights/blog" element={<BlogPage />} />
+          <Route path="/insights/legal-news" element={<LegalNewsPage />} />
+          <Route path="/insights/recent-judgements" element={<RecentJudgementsPage />} />
+
+
+
+
+
+
+
+
+
+          <Route path="/team" element={<TeamPage />} />
 
         </Routes>
 

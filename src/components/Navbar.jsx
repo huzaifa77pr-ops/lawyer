@@ -116,8 +116,8 @@ const navStructure = [
           { name: 'Copyright research', href: '/services/other/ip/copyright-research' },
           { name: 'Patent research assistance', href: '/services/other/ip/patent-research' },
           { name: 'Trademark objection responses', href: '/services/other/ip/trademark-objection' },
-          { name: 'DMCA takedown notices', href: '/services/other/ip/dmca-takedown' },
-          { name: 'IP infringement reports', href: '/services/other/ip/infringement-reports' },
+          { name: "IP Infringement Reports", href: "/services/other/ip/infringement-reports" },
+          { name: "DMCA Takedown", href: "/services/other/ip/dmca-takedown" },
           { name: 'Brand protection documentation', href: '/services/other/ip/brand-protection' }
         ]
       },
@@ -135,7 +135,7 @@ const navStructure = [
         name: 'REAL ESTATE LEGAL SUPPORT',
         subDropdown: [
           { name: 'Lease agreement drafting', href: '/services/other/real-estate/lease-drafting' },
-          { name: 'Property document review', href: '/services/other/real-estate/document-review' },
+          { name: 'Property document review', href: '/services/other/real-estate/property-review' },
           { name: 'Title search assistance', href: '/services/other/real-estate/title-search' },
           { name: 'Tenancy agreements (UK)', href: '/services/other/real-estate/tenancy-agreements' },
           { name: 'Real estate contract summaries', href: '/services/other/real-estate/contract-summaries' },
@@ -163,10 +163,11 @@ const navStructure = [
   {
     name: 'Insight',
     dropdown: [
-      { name: 'Blog' },
-      { name: 'Legal News' },
-      { name: 'Recent Judgements' }
+      { name: 'Blog', href: '/insights/blog' },
+      { name: 'Legal News', href: '/insights/legal-news' },
+      { name: 'Recent Judgements', href: '/insights/recent-judgements' }
     ]
+
   },
   {
     name: 'Contact',
@@ -243,10 +244,9 @@ const Navbar = () => {
                 {/* DROPDOWN OPTIONS (Standard OR Mega Menu) */}
                 {item.dropdown.length > 0 && (
                   item.isMega ? (
-                    /* ——— MEGA MENU (Full-Width / Screen Optimized) ——— */
+                    /* ——— MEGA MENU ——— */
                     <div className={`absolute left-1/2 -translate-x-1/2 top-full opacity-0 invisible group-hover/main:opacity-100 group-hover/main:visible translate-y-3 group-hover/main:translate-y-0 transition-all duration-300 bg-[#16272D]/98 border border-[#A07A41]/30 shadow-biggest rounded-b-2xl z-50 w-[98vw] p-0 mt-[1px] backdrop-blur-xl pointer-events-auto ${hideDropdown ? '!opacity-0 !invisible !pointer-events-none' : ''}`}>
                       <div className="h-1.5 w-[200px] bg-gradient-to-r from-transparent via-[#A07A41] to-transparent absolute top-0 left-1/2 -translate-x-1/2 rounded-full z-10"></div>
-                      
                       <div className="max-h-[80vh] overflow-y-auto custom-scrollbar p-10">
                         <div className={`mx-auto max-w-[90rem] ${item.dropdown.length < 5 ? 'flex justify-center flex-wrap gap-x-12 gap-y-12' : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-y-12 gap-x-8'}`}>
                           {item.dropdown.map((category, catIdx) => (
@@ -274,53 +274,67 @@ const Navbar = () => {
                       </div>
                     </div>
                   ) : (
-                    /* ——— STANDARD DROPDOWN (Level 2 & 3) ——— */
+                    /* ——— STANDARD DROPDOWN ——— */
                     <div className={`absolute top-full opacity-0 invisible group-hover/main:opacity-100 group-hover/main:visible translate-y-3 group-hover/main:translate-y-0 transition-all duration-300 bg-[#16272D] border border-[#A07A41]/30 shadow-2xl rounded-b-lg z-50 w-[280px] ${index > 4 ? 'right-0' : 'left-0'} ${hideDropdown ? '!opacity-0 !invisible !pointer-events-none' : ''}`}>
                       <div className="h-1 w-full bg-gradient-to-r from-[#A07A41] to-[#B58B4B]"></div>
                       <div className="p-2 flex flex-col gap-1">
-                        {item.dropdown.map((subItem, idx) => (
-                          <div key={idx} className="relative group/sub">
-                            <a href="#" className="flex items-center justify-between px-4 py-3 text-[15px] font-serif text-gray-300 hover:text-white hover:bg-[#1B2D33] rounded transition-all">
-                              <span className="flex items-center gap-2">
-                                <ChevronRight className={`h-3 w-3 opacity-0 group-hover/sub:opacity-100 -translate-x-2 group-hover/sub:translate-x-0 transition-all duration-300`} />
-                                {subItem.name}
-                              </span>
-                              {subItem.subDropdown && <ChevronRight className="h-4 w-4" />}
-                            </a>
+                        {item.dropdown.map((subItem, idx) => {
+                          const href = subItem.href || '#';
+                          const isInternal = href.startsWith('/');
+                          const content = (
+                            <span className="flex items-center gap-2">
+                              <ChevronRight className={`h-3 w-3 opacity-0 group-hover/sub:opacity-100 -translate-x-2 group-hover/sub:translate-x-0 transition-all duration-300`} />
+                              {subItem.name}
+                            </span>
+                          );
+                          const className = "flex items-center justify-between px-4 py-3 text-[15px] font-serif text-gray-300 hover:text-white hover:bg-[#1B2D33] rounded transition-all";
 
-                            {/* NESTED DROPDOWN (Level 3) */}
-                            {subItem.subDropdown && (
-                              <div className={`absolute top-0 left-full ml-[1px] opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible translate-x-3 group-hover/sub:translate-x-0 transition-all duration-300 bg-[#16272D] border border-[#A07A41]/30 shadow-2xl rounded-lg z-50 ${subItem.subDropdown.length > 10 ? 'w-[520px]' : 'w-[280px]'} ${hideDropdown ? '!opacity-0 !invisible !pointer-events-none' : ''}`}>
-                                <div className={`p-2 ${subItem.subDropdown.length > 10 ? 'grid grid-cols-2 gap-x-2 overflow-y-auto max-h-[80vh] custom-scrollbar' : 'flex flex-col gap-1'}`}>
-                                  {subItem.subDropdown.map((deepItem, deepIdx) => {
-                                    const name = typeof deepItem === 'string' ? deepItem : deepItem.name;
-                                    const href = typeof deepItem === 'string' ? '#' : deepItem.href;
-                                    const isInternal = href.startsWith('/');
+                          return (
+                            <div key={idx} className="relative group/sub">
+                              {isInternal ? (
+                                <Link to={href} onClick={handleNavLinkClick} className={className}>
+                                  {content}
+                                  {subItem.subDropdown && <ChevronRight className="h-4 w-4" />}
+                                </Link>
+                              ) : (
+                                <a href={href} className={className}>
+                                  {content}
+                                  {subItem.subDropdown && <ChevronRight className="h-4 w-4" />}
+                                </a>
+                              )}
 
-                                    const content = (
-                                      <span className="flex items-center gap-2">
-                                        <div className="h-[1px] w-2 bg-[#A07A41]/40"></div>
-                                        {name}
-                                      </span>
-                                    );
+                              {/* NESTED DROPDOWN (Level 3) */}
+                              {subItem.subDropdown && (
+                                <div className={`absolute top-0 left-full ml-[1px] opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible translate-x-3 group-hover/sub:translate-x-0 transition-all duration-300 bg-[#16272D] border border-[#A07A41]/30 shadow-2xl rounded-lg z-50 ${subItem.subDropdown.length > 10 ? 'w-[520px]' : 'w-[280px]'} ${hideDropdown ? '!opacity-0 !invisible !pointer-events-none' : ''}`}>
+                                  <div className={`p-2 ${subItem.subDropdown.length > 10 ? 'grid grid-cols-2 gap-x-2 overflow-y-auto max-h-[80vh] custom-scrollbar' : 'flex flex-col gap-1'}`}>
+                                    {subItem.subDropdown.map((deepItem, deepIdx) => {
+                                      const name = typeof deepItem === 'string' ? deepItem : deepItem.name;
+                                      const deepHref = typeof deepItem === 'string' ? '#' : deepItem.href;
+                                      const isDeepInternal = deepHref.startsWith('/');
+                                      const deepContent = (
+                                        <span className="flex items-center gap-2">
+                                          <div className="h-[1px] w-2 bg-[#A07A41]/40"></div>
+                                          {name}
+                                        </span>
+                                      );
+                                      const deepClassName = "block px-4 py-2.5 text-[13px] font-serif text-gray-400 hover:text-white hover:bg-[#1B2D33] rounded transition-all whitespace-nowrap";
 
-                                    const className = "block px-4 py-2.5 text-[13px] font-serif text-gray-400 hover:text-white hover:bg-[#1B2D33] rounded transition-all whitespace-nowrap";
-
-                                    return isInternal ? (
-                                      <Link key={deepIdx} to={href} onClick={handleNavLinkClick} className={className}>
-                                        {content}
-                                      </Link>
-                                    ) : (
-                                      <a key={deepIdx} href={href} className={className}>
-                                        {content}
-                                      </a>
-                                    );
-                                  })}
+                                      return isDeepInternal ? (
+                                        <Link key={deepIdx} to={deepHref} onClick={handleNavLinkClick} className={deepClassName}>
+                                          {deepContent}
+                                        </Link>
+                                      ) : (
+                                        <a key={deepIdx} href={deepHref} className={deepClassName}>
+                                          {deepContent}
+                                        </a>
+                                      );
+                                    })}
+                                  </div>
                                 </div>
-                              </div>
-                            )}
-                          </div>
-                        ))}
+                              )}
+                            </div>
+                          );
+                        })}
                       </div>
                     </div>
                   )
@@ -355,36 +369,54 @@ const Navbar = () => {
 
               {item.dropdown.length > 0 && mobileActiveDropdown === item.name && (
                 <div className="bg-[#1B2D33] border-l-2 border-[#A07A41]/40 py-2 mb-4 rounded-r-lg">
-                  {item.dropdown.map((subItem, idx) => (
-                    <div key={idx}>
-                      <button onClick={() => subItem.subDropdown && toggleMobileSubDropdown(subItem.name)} className="flex items-center justify-between w-full px-6 py-3.5 text-gray-400 hover:text-[#A07A41] transition-colors">
-                        <span className="flex items-center gap-3"><div className="h-[1.5px] w-3 bg-[#A07A41]/40"></div>{subItem.name}</span>
-                        {subItem.subDropdown && <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${mobileActiveSubDropdown === subItem.name ? 'rotate-180 text-[#A07A41]' : ''}`} />}
-                      </button>
+                  {item.dropdown.map((subItem, idx) => {
+                    const href = subItem.href || '#';
+                    const isInternal = href.startsWith('/');
+                    return (
+                      <div key={idx}>
+                        {subItem.subDropdown ? (
+                          <button 
+                            onClick={() => toggleMobileSubDropdown(subItem.name)} 
+                            className="flex items-center justify-between w-full px-6 py-3.5 text-gray-400 hover:text-[#A07A41] transition-colors"
+                          >
+                            <span className="flex items-center gap-3"><div className="h-[1.5px] w-3 bg-[#A07A41]/40"></div>{subItem.name}</span>
+                            <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${mobileActiveSubDropdown === subItem.name ? 'rotate-180 text-[#A07A41]' : ''}`} />
+                          </button>
+                        ) : (
+                          isInternal ? (
+                            <Link to={href} onClick={handleNavLinkClick} className="flex items-center gap-3 w-full px-6 py-3.5 text-gray-400 hover:text-[#A07A41] transition-colors">
+                              <div className="h-[1.5px] w-3 bg-[#A07A41]/40"></div>{subItem.name}
+                            </Link>
+                          ) : (
+                            <a href={href} onClick={handleNavLinkClick} className="flex items-center gap-3 w-full px-6 py-3.5 text-gray-400 hover:text-[#A07A41] transition-colors">
+                              <div className="h-[1.5px] w-3 bg-[#A07A41]/40"></div>{subItem.name}
+                            </a>
+                          )
+                        )}
 
-                      {subItem.subDropdown && mobileActiveSubDropdown === subItem.name && (
-                        <div className="bg-[#16272D]/50 ml-4 border-l border-[#A07A41]/20 my-1">
-                          {subItem.subDropdown.map((deepItem, dIdx) => {
-                            const name = typeof deepItem === 'string' ? deepItem : deepItem.name;
-                            const href = typeof deepItem === 'string' ? '#' : deepItem.href;
-                            const isInternal = href.startsWith('/');
-                            
-                            const className = "block px-8 py-2.5 text-xs text-gray-500 hover:text-[#A07A41]";
+                        {subItem.subDropdown && mobileActiveSubDropdown === subItem.name && (
+                          <div className="bg-[#16272D]/50 ml-4 border-l border-[#A07A41]/20 my-1">
+                            {subItem.subDropdown.map((deepItem, dIdx) => {
+                              const name = typeof deepItem === 'string' ? deepItem : deepItem.name;
+                              const href = typeof deepItem === 'string' ? '#' : deepItem.href;
+                              const isInternal = href.startsWith('/');
+                              const className = "block px-10 py-3 text-xs text-gray-500 hover:text-[#A07A41] transition-colors";
 
-                            return isInternal ? (
-                              <Link key={dIdx} to={href} onClick={handleNavLinkClick} className={className}>
-                                {name}
-                              </Link>
-                            ) : (
-                              <a key={dIdx} href={href} className={className}>
-                                {name}
-                              </a>
-                            );
-                          })}
-                        </div>
-                      )}
-                    </div>
-                  ))}
+                              return isInternal ? (
+                                <Link key={dIdx} to={href} onClick={handleNavLinkClick} className={className}>
+                                  {name}
+                                </Link>
+                              ) : (
+                                <a key={dIdx} href={href} className={className}>
+                                  {name}
+                                </a>
+                              );
+                            })}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
               )}
             </div>
